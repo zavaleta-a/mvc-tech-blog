@@ -54,5 +54,36 @@ router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password
+    }).then(dbUserData => {
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+            res.json(dbUserData);
+        });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
+//Login
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    }).then(dbUserData => {
+        res.status(400).json({
+            message: 'Username not found'
+        });
+        return;
+    }
+    req.session.save(() => {
+        req.session.user_id = dbUserData.user_id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+        res.json({ message: 'Logged in!'});
+    });
     })
 })
