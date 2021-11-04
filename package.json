@@ -1,0 +1,30 @@
+{
+  "name": "mvc-tech-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seeds/index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zavaleta-a/mvc-tech-blog.git"
+  },
+  "author": "Fredo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zavaleta-a/mvc-tech-blog/issues"
+  },
+  "homepage": "https://github.com/zavaleta-a/mvc-tech-blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.9.0"
+  }
+}
